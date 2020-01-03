@@ -21,7 +21,7 @@ def flatten_a_o_a(aoa)
 end
 
 def movie_with_director_name(director_name, movie_data)
-  { 
+  {
     :title => movie_data[:title],
     :worldwide_gross => movie_data[:worldwide_gross],
     :release_year => movie_data[:release_year],
@@ -50,7 +50,7 @@ def movies_with_director_key(name, movies_collection)
   # movie_with_director_name method
   num_movies = movies_collection.length
   updated_array = [];
-  
+
   num_movies.times do |index|
     updated_movie = movies_with_director_names(name, movies_collection[index]);
     updated_array.push(updated_movie)
