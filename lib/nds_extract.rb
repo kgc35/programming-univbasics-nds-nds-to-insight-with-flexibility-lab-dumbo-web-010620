@@ -21,7 +21,7 @@ def flatten_a_o_a(aoa)
 end
 
 def movie_with_director_name(director_name, movie_data)
-  { 
+  {
     :title => movie_data[:title],
     :worldwide_gross => movie_data[:worldwide_gross],
     :release_year => movie_data[:release_year],
@@ -48,6 +48,15 @@ def movies_with_director_key(name, movies_collection)
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+  num_movies = movies_collection.length
+  updated_array = [];
+
+  num_movies.times do |index|
+    updated_movie = movie_with_director_name(name, movies_collection[index]);
+    updated_array.push(updated_movie)
+  end
+
+  updated_array
 end
 
 
@@ -63,6 +72,25 @@ def gross_per_studio(collection)
   #
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
+
+  result = {};
+  num_movies = collection.length;
+
+num_movies.times do |index|
+  # For readability, let's save this lookup to somethign meaningful
+  studio = collection[index][:studio]
+  gross = collection[index][:worldwide_gross]
+  # If there's no key for this number, add the number as a key and assign it
+  # a new Array for holding future movies with that price
+  if !result[studio]
+    result[studio] = gross;
+  else
+    result[studio] += gross;
+  end
+end
+
+result
+
 end
 
 def movies_with_directors_set(source)
@@ -76,6 +104,16 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+  num_directors = source.length;
+  result=[];
+
+num_directors.times do |index|
+  director_name = source[index][:name];
+  movie_array = source[index][:movies];
+  keyed_movie_array = movies_with_director_key(director_name, movie_array);
+  result.push(keyed_movie_array)
+end
+  result
 end
 
 # ----------------    End of Your Code Region --------------------
