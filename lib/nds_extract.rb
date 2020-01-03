@@ -74,8 +74,8 @@ def gross_per_studio(collection)
   # total of all the worldwide_gross numbers for every movie in the input Hash
 
   result = {};
-  num_movies = collection.length; 
-  
+  num_movies = collection.length;
+
 num_movies.times do |index|
   # For readability, let's save this lookup to somethign meaningful
   studio = collection[index][:studio]
