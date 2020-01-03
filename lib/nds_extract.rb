@@ -87,6 +87,7 @@ num_movies.times do |index|
   else
     result[studio] += gross;
   end
+end
 
 result
 
