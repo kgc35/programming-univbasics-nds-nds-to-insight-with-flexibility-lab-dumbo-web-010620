@@ -104,6 +104,16 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+  num_directors = source.length;
+  result=[];
+
+num_directors.times do |index|
+  director_name = source[index][:name];
+  movie_array = source[index][:movies];
+  keyed_movie_array = movies_with_director_key(director_name, movie_array);
+  result.push(keyed_movie_array)
+end
+  result
 end
 
 # ----------------    End of Your Code Region --------------------
