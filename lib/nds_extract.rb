@@ -82,6 +82,9 @@ num_movies.times do |index|
   gross = collection[index][:worldwide_gross]
   # If there's no key for this number, add the number as a key and assign it
   # a new Array for holding future movies with that price
+  if !result[studio]
+    result[studio] = gross;
+  else
     result[studio] += gross;
   end
 
