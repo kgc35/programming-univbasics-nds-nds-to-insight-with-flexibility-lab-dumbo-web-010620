@@ -52,7 +52,7 @@ def movies_with_director_key(name, movies_collection)
   updated_array = [];
 
   num_movies.times do |index|
-    updated_movie = movies_with_director_name(name, movies_collection[index]);
+    updated_movie = movie_with_director_name(name, movies_collection[index]);
     updated_array.push(updated_movie)
   end
 
